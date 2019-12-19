@@ -13,6 +13,7 @@ public class HelloAction extends AnAction {
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
         Project project = e.getProject();
+       // ApplicationManager.getApplication().invokeLater(); proper way
         Messages.showMessageDialog(project, "Hello fellow!", "Asd", Messages.getQuestionIcon());
     }
 
