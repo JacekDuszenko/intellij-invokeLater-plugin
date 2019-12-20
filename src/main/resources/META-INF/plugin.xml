@@ -4,18 +4,19 @@
     <vendor email="jacek.duszenko@gmail.com" url="http://www.github.com/JacekDuszenko">JacekDuszenko</vendor>
 
     <description><![CDATA[
-    This is an <b> assessment </b> coding task for Jetbrains.
+    This is an <b> assessment </b> coding task for Jetbrains. It demonstrates inspection for SwingUtilities#invokeLater function invocations.
     ]]></description>
 
     <depends>com.intellij.modules.lang</depends>
 
     <extensions defaultExtensionNs="com.intellij">
+        <localInspection language="JAVA"
+                         displayName="Coding assessment: 'SwingUtilities.invokeLater' is used instead 'application.invokeLater'"
+                         groupPath="Java"
+                         groupBundle="messages.InspectionsBundle"
+                         groupKey="group.names.probable.bugs"
+                         enabledByDefault="true"
+                         level="ERROR"
+                         implementationClass="inspection.InvokeLaterInspection"/>
     </extensions>
-
-    <actions>
-        <group id="MyPlugin.SampleMenu" text="Greeting" description="Greeting menu">
-            <add-to-group group-id="MainMenu" anchor="last"/>
-            <action id="MyPlugin.Textboxes" class="HelloAction" text="HelloAction"/>
-        </group>
-    </actions>
 </idea-plugin>

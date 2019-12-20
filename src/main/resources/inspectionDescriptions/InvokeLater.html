@@ -1,0 +1,8 @@
+<html>
+<body>
+<b>Coding assessment: </b> SwingUtilities.invokeLater was used instead of application.invokeLater <br>
+In IntelliJ code base it’s prohibited to use SwingUtilities#invokeLater, <br>
+mainly because it could be too late to perform the runnable but there is no convenient API to check if that's the case (like the initial dialog is still shown, <br>
+no progress window appeared since the activity was requested, etc.)
+</body>
+</html>
