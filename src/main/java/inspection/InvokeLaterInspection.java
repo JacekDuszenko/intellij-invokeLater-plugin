@@ -3,7 +3,7 @@ package inspection;
 import com.intellij.codeInspection.AbstractBaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.ProblemsHolder;
 import com.intellij.psi.PsiElementVisitor;
-import factory.InvokeLaterMethodFactory;
+import factory.InvokeLaterFactory;
 import org.jetbrains.annotations.NotNull;
 import quickfix.InvokeLaterMethodQuickfix;
 import visitor.InvokeLaterVisitor;
@@ -13,7 +13,7 @@ import visitor.InvokeLaterVisitor;
  */
 public class InvokeLaterInspection extends AbstractBaseJavaLocalInspectionTool {
 
-  private InvokeLaterMethodQuickfix invokeLaterMethodQuickfix = new InvokeLaterMethodQuickfix(new InvokeLaterMethodFactory());
+  private InvokeLaterMethodQuickfix invokeLaterMethodQuickfix = new InvokeLaterMethodQuickfix(new InvokeLaterFactory());
 
   @NotNull
   @Override
