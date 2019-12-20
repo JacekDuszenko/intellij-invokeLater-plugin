@@ -18,8 +18,12 @@ public class InvokeLaterMethodQuickfix implements LocalQuickFix {
 
   private InvokeLaterFactory invokeLaterFactory;
 
-  public InvokeLaterMethodQuickfix(InvokeLaterFactory invokeLaterFactory) {
+  private InvokeLaterMethodQuickfix(InvokeLaterFactory invokeLaterFactory) {
     this.invokeLaterFactory = invokeLaterFactory;
+  }
+
+  public static InvokeLaterMethodQuickfix create() {
+    return new InvokeLaterMethodQuickfix(new InvokeLaterFactory());
   }
 
   @Nls(capitalization = Nls.Capitalization.Sentence)
