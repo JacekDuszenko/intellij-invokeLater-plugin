@@ -70,6 +70,9 @@ public class TestInvokeLaterInspection extends UsefulTestCase {
     doTest(METHOD_CALL_TEST_PREFIX, QUICKFIX_INVOKE_LATER_NAME);
   }
 
+  /**
+   * Test the method reference case
+   */
   public void testInvokeLaterMethodReference() {
     doTest(METHOD_REFERENCE_TEST_PREFIX, QUICKFIX_INVOKE_LATER_REFERENCE_NAME);
   }
