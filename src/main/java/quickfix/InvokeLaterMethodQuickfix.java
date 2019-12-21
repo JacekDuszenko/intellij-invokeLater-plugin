@@ -9,7 +9,7 @@ import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiMethodCallExpression;
 import com.intellij.util.IncorrectOperationException;
-import factory.InvokeLaterFactory;
+import factory.ApplicationInvokeLaterFactory;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 
@@ -22,14 +22,14 @@ import org.jetbrains.annotations.NotNull;
 public class InvokeLaterMethodQuickfix implements LocalQuickFix {
   private static final Logger LOG = Logger.getInstance("#InvokeLaterMethodQuickfix");
 
-  private InvokeLaterFactory invokeLaterFactory;
+  private ApplicationInvokeLaterFactory applicationInvokeLaterFactory;
 
-  private InvokeLaterMethodQuickfix(InvokeLaterFactory invokeLaterFactory) {
-    this.invokeLaterFactory = invokeLaterFactory;
+  private InvokeLaterMethodQuickfix(ApplicationInvokeLaterFactory applicationInvokeLaterFactory) {
+    this.applicationInvokeLaterFactory = applicationInvokeLaterFactory;
   }
 
   public static InvokeLaterMethodQuickfix create() {
-    return new InvokeLaterMethodQuickfix(new InvokeLaterFactory());
+    return new InvokeLaterMethodQuickfix(new ApplicationInvokeLaterFactory());
   }
 
   @Nls(capitalization = Nls.Capitalization.Sentence)
@@ -58,7 +58,7 @@ public class InvokeLaterMethodQuickfix implements LocalQuickFix {
   private void replaceSwingWithApplication(@NotNull Project project, @NotNull ProblemDescriptor descriptor) {
     PsiMethodCallExpression swingInvokeLaterCall = (PsiMethodCallExpression) descriptor.getPsiElement();
     PsiElement oldMethodRunnable = swingInvokeLaterCall.getArgumentList().getExpressions()[0];
-    PsiMethodCallExpression applicationInvokeLaterCall = invokeLaterFactory.createInvokeLaterMethodCall(project, oldMethodRunnable);
+    PsiMethodCallExpression applicationInvokeLaterCall = applicationInvokeLaterFactory.createInvokeLaterMethodCall(project, oldMethodRunnable);
     swingInvokeLaterCall.replace(applicationInvokeLaterCall);
   }
 }

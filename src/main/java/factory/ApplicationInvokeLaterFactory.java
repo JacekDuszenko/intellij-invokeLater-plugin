@@ -15,7 +15,7 @@ import com.intellij.psi.PsiMethodReferenceExpression;
  *
  * Factory responsible for creating application#invokeLater methods.
  */
-public class InvokeLaterFactory {
+public class ApplicationInvokeLaterFactory {
 
   /**
    * Creates application#invokeLater method and injects runnable as its argument.

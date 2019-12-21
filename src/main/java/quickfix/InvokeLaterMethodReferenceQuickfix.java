@@ -8,7 +8,7 @@ import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiMethodReferenceExpression;
 import com.intellij.util.IncorrectOperationException;
-import factory.InvokeLaterFactory;
+import factory.ApplicationInvokeLaterFactory;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 
@@ -21,15 +21,15 @@ import org.jetbrains.annotations.NotNull;
 public class InvokeLaterMethodReferenceQuickfix implements LocalQuickFix {
   private static final Logger LOG = Logger.getInstance("#InvokeLaterMethodQuickfix");
 
-  private InvokeLaterFactory invokeLaterFactory;
+  private ApplicationInvokeLaterFactory applicationInvokeLaterFactory;
 
-  private InvokeLaterMethodReferenceQuickfix(InvokeLaterFactory invokeLaterFactory) {
-    this.invokeLaterFactory = invokeLaterFactory;
+  private InvokeLaterMethodReferenceQuickfix(ApplicationInvokeLaterFactory applicationInvokeLaterFactory) {
+    this.applicationInvokeLaterFactory = applicationInvokeLaterFactory;
   }
 
   public static InvokeLaterMethodReferenceQuickfix create() {
 
-    return new InvokeLaterMethodReferenceQuickfix(new InvokeLaterFactory());
+    return new InvokeLaterMethodReferenceQuickfix(new ApplicationInvokeLaterFactory());
   }
 
   @Nls(capitalization = Nls.Capitalization.Sentence)
@@ -57,7 +57,7 @@ public class InvokeLaterMethodReferenceQuickfix implements LocalQuickFix {
 
   private void replaceSwingRefWithApplicationRef(Project project, ProblemDescriptor descriptor) {
     PsiMethodReferenceExpression swingInvokeLaterReference = (PsiMethodReferenceExpression) descriptor.getPsiElement();
-    PsiMethodReferenceExpression applicationInvokeLaterReference = invokeLaterFactory.createInvokeLaterMethodReference(project);
+    PsiMethodReferenceExpression applicationInvokeLaterReference = applicationInvokeLaterFactory.createInvokeLaterMethodReference(project);
     swingInvokeLaterReference.replace(applicationInvokeLaterReference);
   }
 }
