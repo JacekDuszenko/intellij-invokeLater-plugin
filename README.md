@@ -9,5 +9,4 @@ mainly because it could be too late to perform the runnable but there is no conv
 
 ## How to run
 
-
-to be done
+You can run the plugin in debug mode by using gradle's `runIde` task, which is part of [intellij plugin](https://github.com/JetBrains/gradle-intellij-plugin)
