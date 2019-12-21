@@ -12,6 +12,12 @@ import com.intellij.psi.PsiReferenceExpression;
 import quickfix.InvokeLaterMethodQuickfix;
 import quickfix.InvokeLaterMethodReferenceQuickfix;
 
+/**
+ * InvokeLaterVisitor looks for SwingUtilities#invokeLater method calls and method references
+ * registering a problem when any of those two are found.
+ *
+ * @author Jack Duszenko
+ */
 public class InvokeLaterVisitor extends JavaElementVisitor {
 
   private ProblemsHolder problemsHolder;
@@ -26,10 +32,11 @@ public class InvokeLaterVisitor extends JavaElementVisitor {
     this.invokeLaterMethodReferenceQuickfix = invokeLaterMethodReferenceQuickfix;
   }
 
-  @Override
-  public void visitReferenceExpression(PsiReferenceExpression psiReferenceExpression) {
-  }
-
+  /**
+   * Visits method call expressions looking for SwingUtilities#invokeLater and registers a problem when found.
+   *
+   * @param expression - SwingUtilities#invokeLater method call expression.
+   */
   @Override
   public void visitMethodCallExpression(PsiMethodCallExpression expression) {
     super.visitMethodCallExpression(expression);
@@ -40,6 +47,11 @@ public class InvokeLaterVisitor extends JavaElementVisitor {
     }
   }
 
+  /**
+   * Visits method reference expressions looking for SwingUtilities#invokeLater and registers a problem when found.
+   *
+   * @param expression - visited method reference expression.
+   */
   @Override
   public void visitMethodReferenceExpression(PsiMethodReferenceExpression expression) {
     super.visitMethodReferenceExpression(expression);

@@ -13,6 +13,12 @@ import factory.InvokeLaterFactory;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * InvokeLaterMethodQuickfix replaces invocations of SwingUtilities#invokeLater to
+ * ApplicationManager#getApplication#invokeLater preserving the runnable parameter argument.
+ *
+ * @author Jack Duszenko
+ */
 public class InvokeLaterMethodQuickfix implements LocalQuickFix {
   private static final Logger LOG = Logger.getInstance("#InvokeLaterMethodQuickfix");
 

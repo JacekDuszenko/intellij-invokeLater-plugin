@@ -12,6 +12,12 @@ import factory.InvokeLaterFactory;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * InvokeLaterMethodQuickfix replaces references of SwingUtilities#invokeLater to
+ * ApplicationManager#getApplication#invokeLater.
+ *
+ * @author Jack Duszenko
+ */
 public class InvokeLaterMethodReferenceQuickfix implements LocalQuickFix {
   private static final Logger LOG = Logger.getInstance("#InvokeLaterMethodQuickfix");
 

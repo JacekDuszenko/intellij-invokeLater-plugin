@@ -1,6 +1,5 @@
 package util;
 
-
 public class Constants {
 
   private static final String DOT = ".";
