@@ -28,7 +28,6 @@ public class InvokeLaterMethodReferenceQuickfix implements LocalQuickFix {
   }
 
   public static InvokeLaterMethodReferenceQuickfix create() {
-
     return new InvokeLaterMethodReferenceQuickfix(new ApplicationInvokeLaterFactory());
   }
 
