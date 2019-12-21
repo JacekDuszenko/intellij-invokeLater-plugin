@@ -4,11 +4,15 @@ import static util.Constants.QUICKFIX_INVOKE_LATER_REFERENCE_NAME;
 
 import com.intellij.codeInspection.LocalQuickFix;
 import com.intellij.codeInspection.ProblemDescriptor;
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiMethodReferenceExpression;
 import com.intellij.util.IncorrectOperationException;
 import factory.ApplicationInvokeLaterFactory;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.*;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 
